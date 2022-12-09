@@ -48,16 +48,16 @@ There are 8 things you must download to your main `folder` location:
 
 ## Script 1: Preprocessing Diffusion MRI Images
 This script runs some basic preprocessing on the diffusion weighted images, including:
-- MR Gibbs de-ringing
-- Correcting for eddy current-induced distortions and movement correction
-- EPI induced susceptibility artifact correction (*bias correction*). 
+    - MR Gibbs de-ringing
+    - Correcting for eddy current-induced distortions/movement correction
+    - EPI induced susceptibility artifact correction (*bias correction*). 
 
 After this the script fits a tensor model to the preprocessed data. I suggest running this script after using the screen command, so you can throw it into the background and continue using your terminal [*using the ctrl + (A + D) command*].
 
 ```
 cowenswalton:{folder} $ screen
 cowenswalton:{folder} $ for subj in $(cat subjects.txt) ; 
-    do 
+do 
     singularity run \
     --cleanenv \
     --bind ${PWD}/input:/data \
@@ -101,4 +101,4 @@ cowenswalton:{folder} $ singularity run \
 ```
 
 ## Conclusion
-If this all ran successfully, you should have a folder called `USC_FINAL` which will have an `AD`, `FA`, `MD` and `RD` folder, containing the TBSS data for each subject. It will also have a folder called `QC` which has the FA skeleton pngs. If there were any issues along the way, look in the `folder/logs` file for clues.
+If this all ran successfully, you should have a folder called `USC_FINAL` which will have an `AD`, `FA`, `MD` and `RD` folder, containing the TBSS data for each subject. It will also have a folder called `QC` which has the FA skeleton pngs. If there were any issues along the way, look in the `/folder/logs` file for clues.
