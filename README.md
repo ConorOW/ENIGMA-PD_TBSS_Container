@@ -42,9 +42,9 @@ There are 8 things you must download to your main `folder` location:
 3. ROIextraction_info
 4. covariates.csv (*please fill in with subject information*)
 5. [script_01_preproc.sh](https://github.com/ConorOW/ENIGMA-PD_TBSS_Container/blob/42a9efd90c8110e9b9541b053d31c53461015c06/script_01_preproc.sh)
-6. [script_02_tbss.sh](https://drive.google.com/file/d/10vXTtjxh97ve3HTJokIVdd-C4z1hWhEd/view?usp=share_link)
-7. [script_03_tbss.sh](https://drive.google.com/file/d/10rnrpS8UhzvdWui5_0vNJ8NY6-BvQ-pe/view?usp=share_link)
-8. [script_04_concat_linux.sh](https://drive.google.com/file/d/10nf3xS0X_QDi6emjX2AQ3YcSnAff4rZr/view?usp=share_link)
+6. [script_02_tbss.sh](https://github.com/ConorOW/ENIGMA-PD_TBSS_Container/blob/203f7d6e84581948f90c956551d31c31dc074619/script_02_tbss.sh)
+7. [script_03_tbss.sh](https://github.com/ConorOW/ENIGMA-PD_TBSS_Container/blob/203f7d6e84581948f90c956551d31c31dc074619/script_03_tbss.sh)
+8. [script_04_concat_linux.sh](https://github.com/ConorOW/ENIGMA-PD_TBSS_Container/blob/203f7d6e84581948f90c956551d31c31dc074619/script_04_qc_data-retrieval.sh)
 
 ## Script 1: Preprocessing Diffusion MRI Images
 This script runs some basic preprocessing on the diffusion weighted images, including:
