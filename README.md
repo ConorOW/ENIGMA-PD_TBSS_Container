@@ -37,10 +37,10 @@ Once your image files are all set up, and you have a text file with a list of th
 
 There are 8 things you must download to your main `folder` location:
 
-1. neuropipe_latest.sif
-2. enigmaDTI
-3. ROIextraction_info
-4. covariates.csv (*please fill in with subject information*)
+1. [neuropipe_latest.sif](https://drive.google.com/file/d/1bqA77V_VR5h1gHZkcNEhP-P78nF4VHII/view?usp=share_link)
+2. [enigmaDTI](https://drive.google.com/drive/folders/1-dxhilgBWK0bN_JnDqlpDhUOnUl1frxd?usp=share_link)
+3. [ROIextraction_info](https://drive.google.com/drive/folders/10-B9IL3UOUougOTuPTJZ7IRQCWk6Yi41?usp=share_link)
+4. [covariates.csv](https://drive.google.com/file/d/1-caykSRDq1NHRLidc4VEJTE_hepIm7yp/view?usp=share_link)
 5. [script_01_preproc.sh](https://github.com/ConorOW/ENIGMA-PD_TBSS_Container/blob/42a9efd90c8110e9b9541b053d31c53461015c06/script_01_preproc.sh)
 6. [script_02_tbss.sh](https://github.com/ConorOW/ENIGMA-PD_TBSS_Container/blob/203f7d6e84581948f90c956551d31c31dc074619/script_02_tbss.sh)
 7. [script_03_tbss.sh](https://github.com/ConorOW/ENIGMA-PD_TBSS_Container/blob/203f7d6e84581948f90c956551d31c31dc074619/script_03_tbss.sh)
