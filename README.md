@@ -8,9 +8,10 @@ Go into a location on your computer where you have all of the subject folders yo
 
 ```
 cowenswalton:{folder} $ ls -1 * 
-    sub-P001
-    sub-P002
-    sub-P003
+sub-P001
+sub-P002
+sub-P003
+cowenswalton:{folder} $
 ```
 
 If you change into one of these folders, it should look something like what we have below. What is important is that the image extensions are correct. So the diffusion image must end in `.nii.gz`, the diffusion direction and strength files must end in `.bvec` and `.bval` respectively, and the metadata for the diffusion image must be `.json`. So sub-P001 would look like:
@@ -18,19 +19,20 @@ If you change into one of these folders, it should look something like what we h
 ```
 cowenswalton:{folder} $ cd ./sub-P001
 cowenswalton:{sub-P001} $ ls -1 *
-    dwi_image.nii.gz
-    dwi.json
-    dwi.bvec
-    dwi.bval
+dwi_image.nii.gz
+dwi.json
+dwi.bvec
+dwi.bval
+cowenswalton:{folder} $
 ```
 
 The next thing we need is a text file with a list of the subject folder names. This should look like this (make sure it has an empty line at the end):
 ```
 cowenswalton:{folder} $ cat subjects.txt
-    sub-P001
-    sub-P002
-    sub-P003
- 
+sub-P001
+sub-P002
+sub-P003
+cowenswalton:{folder} $
 ```
 
 Once your image files are all set up, and you have a text file with a list of the names you want to use, we are ready to download the resources we need to run this ENIGMA-DTI Singularity image.
@@ -57,6 +59,7 @@ After preprocessing, the script fits a tensor model to the data. I suggest runni
 ```
 cowenswalton:{folder} $ ml load singularity
 cowenswalton:{folder} $ which singularity
+/usr/local/bin/singularity
 cowenswalton:{folder} $ screen
 cowenswalton:{folder} $ for subj in $(cat subjects.txt) ; do 
     singularity run \
@@ -67,16 +70,19 @@ done
 cowenswalton:{folder} $ ctrl + (A + D) 
 ```
 
-To check that this script has worked you can look at the log files in the `${folder}/logs` directory. You can run the following command which might be easier:
+To check that this script has worked you can look at the log files in the `${folder}/logs` directory. You can also run the following command which might be easier:
 
 ```
 cowenswalton:{folder} $ for subj in $(cat subjects.txt) ; do 
-    ls -1 ${subj}/dtifit/dti_FA.nii.gz ; 
+     ls -1 ${subj}/dtifit/dti_FA.nii.gz ; 
 done
+sub-101287/dtifit/dti_FA.nii.gz
+sub-101288/dtifit/dti_FA.nii.gz
+ls: cannot access sub-101289/dtifit/dti_FA.nii.gz: No such file or directory
+cowenswalton:{folder} $
 ```
 
-If any errors pop up, you can copy those subject names to a new text file and re-run script 1, or troubleshoot.
-
+If any errors pop up like the above, you can copy those subject names to a new text file and re-run script 1, or troubleshoot in the logfiles.
 
 ## Script 2: TBSS - Erode FA images and alignment to ENIGMA DTI template
 This script erodes our FA images slightly, then aligns them with the ENIGMA DTI template. Again, I suggest running this with the screen command.
