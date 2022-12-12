@@ -1,7 +1,7 @@
 # ENIGMA-DTI Preprocessing & TBSS Container
 
 ## Introduction 
-This document lays out the steps necessary to run a basic ENIGMA-DTI TBSS pipeline, which runs preprocessing, tensor fitting and tract-based spatial statistics, using 4 shell scripts and a Singularity image. The final step will copy all of the TBSS metrics for each subject to a central folder “USC_FINAL” which can be shared with USC.
+This document lays out the steps necessary to run a basic ENIGMA-DTI TBSS pipeline, running preprocessing, tensor fitting and tract-based spatial statistics. This is done using 4 shell scripts and a Singularity image. The final step will copy all of the TBSS metrics for each subject to a central folder “USC_FINAL” which can be shared with USC, along with the covariates file which you should fill out.
 
 ## Setup
 Go into a location on your computer where you have all of the subject folders you want to analyze. It should look something like this:
@@ -52,12 +52,13 @@ This script runs some basic preprocessing on the diffusion weighted images, incl
     - Correcting for eddy current-induced distortions/movement correction
     - EPI induced susceptibility artifact correction (*bias correction*). 
 
-After this the script fits a tensor model to the preprocessed data. I suggest running this script after using the screen command, so you can throw it into the background and continue using your terminal [*using the ctrl + (A + D) command*].
+After preprocessing, the script fits a tensor model to the data. I suggest running this script after using the `screen` command, so you can throw it into the background and continue using your terminal [*using the ctrl + (A + D) command*]. This script might take 30-45 minutes per subject, so if that is going to be a prohibitively long time for your data, you might need to talk with Conor about tweaking the script to run on a SGE or job queuing system. It might also be a good idea to just included a few subjects in your `subjects.txt` file for the first run.
 
 ```
+cowenswalton:{folder} $ ml load singularity
+cowenswalton:{folder} $ which singularity
 cowenswalton:{folder} $ screen
-cowenswalton:{folder} $ for subj in $(cat subjects.txt) ; 
-do 
+cowenswalton:{folder} $ for subj in $(cat subjects.txt) ; do 
     singularity run \
     --cleanenv \
     --bind ${PWD}/input:/data \
@@ -65,6 +66,17 @@ do
 done
 cowenswalton:{folder} $ ctrl + (A + D) 
 ```
+
+To check that this script has worked you can look at the log files in the `${folder}/logs` directory. You can run the following command which might be easier:
+
+```
+cowenswalton:{folder} $ for subj in $(cat subjects.txt) ; do 
+    ls -1 ${subj}/dtifit/dti_FA.nii.gz ; 
+done
+```
+
+If any errors pop up, you can copy those subject names to a new text file and re-run script 1, or troubleshoot.
+
 
 ## Script 2: TBSS - Erode FA images and alignment to ENIGMA DTI template
 This script erodes our FA images slightly, then aligns them with the ENIGMA DTI template. Again, I suggest running this with the screen command.
@@ -101,4 +113,6 @@ cowenswalton:{folder} $ singularity run \
 ```
 
 ## Conclusion
-If this all ran successfully, you should have a folder called `USC_FINAL` which will have an `AD`, `FA`, `MD` and `RD` folder, containing the TBSS data for each subject. It will also have a folder called `QC` which has the FA skeleton pngs. If there were any issues along the way, look in the `/folder/logs` file for clues.
+If this all ran successfully, you should have a folder called `USC_FINAL` which will have an `AD`, `FA`, `MD` and `RD` folder, containing the TBSS data for each subject. It will also have a folder called `QC` which has the FA skeleton pngs. Please also remembed to either copy in your covariates file here, or send it along with this folder to USC.
+
+If you have any issues, please [email Conor](conor.owens-walton@loni.usc.edu)
