@@ -51,9 +51,9 @@ There are 8 things you must download to your main `folder` location:
 
 ## Script 1: Preprocessing Diffusion MRI Images
 This script runs some basic preprocessing on the diffusion weighted images, including:
-    - MR Gibbs de-ringing
-    - Correcting for eddy current-induced distortions/movement correction
-    - EPI induced susceptibility artifact correction (*bias correction*). 
+- MR Gibbs de-ringing
+- Correcting for eddy current-induced distortions/movement correction
+- EPI induced susceptibility artifact correction (*bias correction*). 
 
 After preprocessing, the script fits a tensor model to the data. I suggest running this script after using the `screen` command, so you can throw it into the background and continue using your terminal [*using the ctrl + (A + D) command*]. This script might take 30-45 minutes per subject, so if that is going to be a prohibitively long time for your data, you might need to talk with Conor about tweaking the script to run on a SGE or job queuing system. It might also be a good idea to just included a few subjects in your `subjects.txt` file for the first run.
 
