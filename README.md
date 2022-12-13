@@ -1,7 +1,7 @@
 # ENIGMA-DTI Preprocessing & TBSS Container
 
 ## Introduction 
-This document lays out the steps necessary to run a basic ENIGMA-DTI TBSS pipeline, running preprocessing, tensor fitting and tract-based spatial statistics. This is done using 4 shell scripts and a Singularity image. The final step will copy all of the TBSS metrics for each subject to a central folder “USC_FINAL” which can be shared with USC, along with the covariates file which you should fill out.
+This document lays out the steps necessary to run a basic ENIGMA-DTI TBSS pipeline, running preprocessing, tensor fitting and tract-based spatial statistics. This is done using 4 shell scripts and a Singularity image. The final step will copy all of the TBSS metrics for each subject to a central folder `USC_FINAL` which can be shared with USC, along with the covariates file which you should fill out.
 
 ## Setup
 Go into a location on your computer where you have all of the subject folders you want to analyze. It should look something like this:
