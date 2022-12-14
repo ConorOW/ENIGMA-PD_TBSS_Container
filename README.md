@@ -65,7 +65,7 @@ cowenswalton:{folder} $ screen
 cowenswalton:{folder} $ for subj in $(cat subjects.txt) ; do 
     singularity run \
     --cleanenv \
-    --bind ${PWD}/input:/data \
+    --bind ${PWD}:/data \
     neuropipe_latest.sif ./script_01_preproc.sh ${subj} ; 
 done
 cowenswalton:{folder} $ ctrl + (A + D) 
