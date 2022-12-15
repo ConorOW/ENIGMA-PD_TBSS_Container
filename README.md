@@ -66,7 +66,7 @@ cowenswalton:{folder} $ for subj in $(cat subjects.txt) ; do
     singularity run \
     --cleanenv \
     --bind ${PWD}:/data \
-    neuropipe_latest.sif ./script_01_preproc.sh ${subj} ; 
+    neuropipe_latest.sif /data/script_01_preproc.sh ${subj} ; 
 done
 cowenswalton:{folder} $ ctrl + (A + D) 
 ```
@@ -93,7 +93,7 @@ cowenswalton:{folder} $ screen
 cowenswalton:{folder} $ singularity run \
     --cleanenv \
     --bind ${PWD}:/data \
-    neuropipe_latest.sif ./script_02_tbss.sh ;
+    neuropipe_latest.sif /data/script_02_tbss.sh ;
 cowenswalton:{folder} $ ctrl + (A + D)
 ```
 
@@ -105,7 +105,7 @@ cowenswalton:{folder} $ screen
 cowenswalton:{folder} $ singularity run \
     --cleanenv \
     --bind ${PWD}:/data \
-    neuropipe_latest.sif ./script_03_tbss.sh ;
+    neuropipe_latest.sif /data/script_03_tbss.sh ;
 cowenswalton:{folder} $ ctrl + (A + D)
 ```
 
@@ -116,7 +116,7 @@ The final script in this pipeline creates a png of each subject FA skeleton, ove
 cowenswalton:{folder} $ singularity run \
     --cleanenv \
     --bind ${PWD}:/data \
-    neuropipe_latest.sif ./script_04_qc_data-retrieval.sh ;
+    neuropipe_latest.sif /data/script_04_qc_data-retrieval.sh ;
 ```
 
 ## Conclusion
