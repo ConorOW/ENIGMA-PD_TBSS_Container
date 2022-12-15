@@ -40,3 +40,6 @@ for subj in $(cat /data/subjects.txt) ; do
     
 done
 
+# Now we want to change some permissions on that output
+chmod -r 777 /data/USC_FINAL
+
