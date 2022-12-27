@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # EXIT ON ERROR
-set -x
+set -ex
 
 # SET A LOCATION FOR THE ERROR OUTPUT OF THIS FILE TO BE SENT TO
 exec 2> /data/logs/script_03_tbss.log ;
