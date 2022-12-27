@@ -3,6 +3,9 @@
 # I suggest running this with the screen command so you can throw it into the background and continue
 # to use your terminal while it runs.
 
+# Set a flag so the script exits on error and prints verbose output
+set -ex
+
 # SET A LOCATION FOR THE ERROR OUTPUT OF THIS FILE TO BE SENT TO
 exec 2> /data/logs/script_04_qc_data-retrieval.log ;
 
