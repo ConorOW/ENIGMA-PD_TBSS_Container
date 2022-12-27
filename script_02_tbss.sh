@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# EXIT ON ERROR
-set -x
+# Set a flag so the script exits on error and prints verbose output
+set -ex
 
 # SET A LOCATION FOR THE ERROR OUTPUT OF THIS FILE TO BE SENT TO
 exec 2> /data/logs/script_02_tbss.log
