@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Set a flag so the script exits on error
-set -x
+# Set a flag so the script exits on error and prints verbose output
+set -ex
 
 # Set the first argument of the script call as the subject ID
 subj=${1}
