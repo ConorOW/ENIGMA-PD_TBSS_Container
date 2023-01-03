@@ -127,6 +127,6 @@ cowenswalton:{folder} $ singularity run \
 ```
 
 ## Conclusion
-If this all ran successfully, you should have a folder called `USC_FINAL` which will have an `AD`, `FA`, `MD` and `RD` folder, containing the TBSS data for each subject. It will also have a folder called `QC` which has the FA skeleton pngs. Please also remembed to either copy in your covariates file here, or send it along with this folder to USC.
+If this all ran successfully, you should have a folder called `USC_FINAL` which will have an `AD`, `FA`, `MD` and `RD` folder, containing the TBSS data for each subject. It will also have a folder called `QC` which has the FA skeleton pngs. Please also remember to either copy in your covariates file here, or send it along with this folder to USC.
 
 If you have any issues, please [email Conor](conor.owens-walton@loni.usc.edu)
