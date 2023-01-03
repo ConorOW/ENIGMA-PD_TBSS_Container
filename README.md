@@ -23,6 +23,7 @@ dwi_image.nii.gz
 dwi.json
 dwi.bvec
 dwi.bval
+
 cowenswalton:{sub-P001} $
 ```
 
@@ -69,6 +70,7 @@ cowenswalton:{folder} $ for subj in $(cat subjects.txt) ; do
     --bind ${PWD}:/data \
     neuropipe_latest.sif /data/script_01_preproc.sh ${subj} ; 
 done
+
 cowenswalton:{folder} $ ctrl + (A + D) 
 ```
 
@@ -81,6 +83,7 @@ done
 sub-101287/dtifit/dti_FA.nii.gz
 sub-101288/dtifit/dti_FA.nii.gz
 ls: cannot access sub-101289/dtifit/dti_FA.nii.gz: No such file or directory
+
 cowenswalton:{folder} $
 ```
 
@@ -95,6 +98,7 @@ cowenswalton:{folder} $ singularity run \
     --cleanenv \
     --bind ${PWD}:/data \
     neuropipe_latest.sif /data/script_02_tbss.sh ;
+    
 cowenswalton:{folder} $ ctrl + (A + D)
 ```
 
@@ -107,6 +111,7 @@ cowenswalton:{folder} $ singularity run \
     --cleanenv \
     --bind ${PWD}:/data \
     neuropipe_latest.sif /data/script_03_tbss.sh ;
+    
 cowenswalton:{folder} $ ctrl + (A + D)
 ```
 
