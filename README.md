@@ -23,11 +23,12 @@ dwi_image.nii.gz
 dwi.json
 dwi.bvec
 dwi.bval
-cowenswalton:{folder} $
+cowenswalton:{sub-P001} $
 ```
 
 The next thing we need is a text file with a list of the subject folder names. This should look like this (make sure it has an empty line at the end):
 ```
+cowenswalton:{sub-P001} $ cd ${folder}
 cowenswalton:{folder} $ cat subjects.txt
 sub-P001
 sub-P002
